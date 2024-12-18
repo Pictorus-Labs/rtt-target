@@ -127,6 +127,7 @@ macro_rules! rtt_init {
         use $crate::rtt::*;
 
         #[repr(C)]
+        #[repr(align(32))]
         pub struct RttControlBlock {
             header: RttHeader,
             up_channels: [RttChannel; $crate::rtt_init_repeat!({ 1 + } { 0 }; $($($up)*)?)],
